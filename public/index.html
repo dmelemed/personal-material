@@ -73,10 +73,14 @@
 			<!--<md-card-title-text>
 				<span class="md-headline">Calendar</span>
 			</md-card-title-text>-->
-			<md-card-content>
+			<md-card-content flex="80">
 				<pieChart config="pieChart"></pieChart>
 			</md-card-content>
-			<md-card-content>
+			<md-card-content style="background-color: grey;" flex="20" layout="column">
+				<md-card ng-repeat="event in events">
+					<md-card-content>{{ event.name }}</md-card-content>
+				</md-card>
+
 			</md-card-content>
 		</md-card>
 

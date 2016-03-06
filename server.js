@@ -8,8 +8,8 @@ var methodOverride = require('method-override');
 // configuration ===========================================
 
 // config files =================
-var db = require('./config/db');
-mongoose.connect(db.url); // connect to local mongoDB database
+// var db = require('./config/db');
+// mongoose.connect(db.url); // connect to local mongoDB database
 
 var port = process.env.PORT || 8080; // set our port
 
