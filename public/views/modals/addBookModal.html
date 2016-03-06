@@ -1,0 +1,17 @@
+<div>
+  <div class="modal-header">
+    <h3 class="modal-title">Add book</h3>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <input type="text" id="titleForm" class="form-control input-lg text-center" placeholder="Title" ng-model="newBook.title"/>
+        <input type="text" id="authorForm" class="form-control input-lg text-center" placeholder="Author" ng-model="newBook.author"/>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+</div>

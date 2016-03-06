@@ -1,0 +1,35 @@
+<div class="col-sm-4 col-sm-offset-1 panel panel-primary" ng-controller="readingController">
+  <div class="panel-heading">Reading List
+    <span class="label label-info alt-bg">{{ books.length }}</span>
+  </div>
+  <div class="panel-body">
+    <div>
+      <div ng-repeat="book in books | orderBy:completionFunction:true">
+        <div style="overflow:hidden" class="list-item">
+          <div class="left-half">
+            {{ book.title }}
+            <br> by {{ book.author }}
+            <br> {{ book.currentPage }} of {{ book.pages }} pages
+          </div>
+          <div class="right-half">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteBook(book._id)"></span>
+            <br>
+            <uib-progressbar class="align-right center-vertically" max="book.pages" value="book.currentPage">
+              <i class="progress-text">{{ book.currentPage / book.pages * 100 | number : 0 | greaterThanOrEqualToFilter : 10 | addPercentSignIfNotNull }}</i>
+            </uib-progressbar>
+          </div>
+          <div style="text-align:center">
+            <button type="button" class="btn btn-primary" ng-click="toggleHistory(book)">View history</button>
+          </div>
+          <div ng-show="book.showHistory" ng-repeat="entry in book.history | orderBy: entry.timestamp" ng-attr-id={{ 'bookHistory-' + book.index }}> <!-- | orderBy:book. -->
+            <p> {{ entry.pages | pages }}  at {{ entry.timestamp | date:"EEE, MMM d, yy 'at' h:mma"}} </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary center button-left" ng-click="openAddBookModal()">Add new book</button>
+        <button type="button" class="btn btn-primary center button-right" ng-click="openLogReadingModal()">Log reading</button>
+      </div>
+    </div>
+  </div>
+</div>

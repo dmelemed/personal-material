@@ -1,0 +1,18 @@
+<div class="col-sm-4 col-sm-offset-1 panel panel-primary" ng-controller="todoController">
+  <div class="panel-heading">To Do List
+    <span class="label label-info alt-bg">{{ todos.length }}</span>
+  </div>
+  <div class="panel-body">
+    <div>
+      <div ng-repeat="todo in todos">
+        <span ng-click="deleteTodo(todo._id)">{{ todo.text }}</span>
+      </div>
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg text-center" placeholder="To do" ng-model="newTodo.text">
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="addTodo()">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
